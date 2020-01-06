@@ -182,6 +182,8 @@ setwd("~/Desktop/retrosheet/download.folder/unzipped/")
 
 for_type_mapping <- read_csv("all2018.csv")
 
+# for this next step you will need the `variable_list` function from my personal package (https://github.com/BillPetti/bpettir/blob/master/R/variable_list.R)
+
 vars <- variable_list(for_type_mapping) %>%
   mutate(variable_name = as.character(variable_name))
 
