@@ -161,9 +161,81 @@ ggspraychart(df %>%
        subtitle = '2019-06-01 through 2019-06-07')
 ```
 
-![Example MiLB Spray Chart](https://github.com/BillPetti/BillPetti.github.io/blob/master/_posts/rays_org_milb_spray_ex.png?raw=true)
+![Example Org Spray Chart](https://github.com/BillPetti/BillPetti.github.io/blob/master/_posts/rays_org_milb_spray_ex.png?raw=true)
 
-In terms of a single player, the simplist way would be to grab all the `game_pk`s on days when a player's team(s) played and then query the pbp for those `game_pk`s. It is not the most efficient process, but from what I can tell that's the best way to do it today.
+In terms of a single player, the simplist way would be to grab all the `game_pk`s on days when a player's team(s) played and then query the pbp for those `game_pk`s. 
+
+For example, let's make spray charts for all of Vladimir Guerrero Jr.'s batted balls from 2018.
+
+First, grab the dates of his games:
+
+```
+vlad <- baseballr::milb_batter_game_logs_fg(19611, year = 2019)
+```
+
+Next, grab the `game_pk`'s of those games (note I am being lazy here and grabbing all games across Triple- and Double-A):
+
+```
+vlad_dates <- vlad %>%
+  pull(Date)
+```
+
+Then, loop over the games, grab the pbp data, and filter for Guerrero as the batter:
+
+```
+vlad_gk <- map_df(.x = vlad_dates,
+                  ~get_game_pks_mlb_beta(date = .x, 
+                                         league_ids = c(11,12))
+)
+
+vlad_gk_TOR <- vlad_gk %>%
+  filter(teams.home.team.name == "Buffalo Bisons" | teams.home.team.name == "New Hampshire Fisher Cats")
+  
+vlad_data <- map(.x = vlad_gk_TOR %>%
+                   filter(status.codedGameState == "F") %>% 
+                   pull(game_pk), 
+                 ~safe_milb(game_pk = .x)) %>%
+  map('result') %>%
+  bind_rows()
+  
+vlad_pbp <- vlad_data %>%
+  filter(matchup.batter.id == 665489)
+```
+
+We can plot the data by level:
+
+```
+ggspraychart(vlad_pbp, 
+             x_value = 'hitData.coordinates.coordX', 
+             y_value = '-hitData.coordinates.coordY', 
+             fill_value = 'batted.ball.result', 
+             fill_palette = bb_palette, 
+             point_size = 3) +
+  facet_wrap(~home_level_name) +
+  labs(title = 'Vladimir Guerrero Jr: Batted Balls 2018') +
+  facet_wrap(~home_level_name)
+
+```
+
+![Vlad Jr. Level Spray Chart](https://github.com/BillPetti/BillPetti.github.io/blob/master/_posts/vlad_level_spray_ex.png?raw=true)
+
+Or by pitcher handedness and level:
+```
+ggspraychart(vlad_pbp %>%
+               mutate(matchup.pitchHand.description = paste0(matchup.pitchHand.description, 'handed')), 
+             x_value = 'hitData.coordinates.coordX', 
+             y_value = '-hitData.coordinates.coordY', 
+             fill_value = 'batted.ball.result', 
+             fill_palette = bb_palette, 
+             point_size = 3) +
+  facet_wrap(~home_level_name) +
+  labs(title = 'Vladimir Guerrero Jr: Batted Balls 2018') +
+  facet_wrap(~matchup.pitchHand.description+home_level_name, ncol = 4)
+
+```
+![Vlad Jr. Level Spray Chart](https://github.com/BillPetti/BillPetti.github.io/blob/master/_posts/vlad_level_hand_spray_ex.png?raw=true)
+
+It is not the most efficient process, but from what I can tell that's the best way to do it today.
 
 That's all for now. Let me know if you have any issues. Oh, and before I forget, you can also grab MLB pbp data using the same functions.
 
