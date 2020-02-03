@@ -34,6 +34,8 @@ navbar-links:
     - Cumulative Home Runs by Plate Appearances App: "http://billpetti.shinyapps.io/shiny_spraychart"
     - Umpire IDs for games since 2008: "https://app.box.com/s/x20ahfe5e3a3y9sknz3g5y2ojbef3fzx"
     - Game Day Supplemental Data File: "https://app.box.com/v/gamedayboxscoredata"
+    - MiLB Game Supplemental Data File: "https://app.box.com/s/ljurodaqnof7kbnyhayyizo7wey0kw5h"
+    - MLB Pitch-level Linear Weights, 2008-present: "https://app.box.com/s/exw42n3r1dyewsr149adt3it9oa7dmtz"
     - Statcast-PITCHf/x Working Glossary: "https://app.box.com/v/statcast-pitchfx-glossary-pett"
     - 40-man Roster Hitter Heatmaps: "https://www.dropbox.com/home/Public/hitter_heatmaps_40_man_rosters"
   R Crash Course: "Crash_course_in_R"
