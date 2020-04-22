@@ -32,6 +32,7 @@ navbar-links:
     - MLB Game Feed Viewer: "https://billpetti.shinyapps.io/live_pbp_viewer/"
     - Hitter Volatility (VOL and corrVOL) Leaderboards: "https://rawgit.com/BillPetti/Offensive-Consistency-MLB/master/corrVOL/individual_seasons_VOL_1974_2016.html"
     - Cumulative Home Runs by Plate Appearances App: "http://billpetti.shinyapps.io/shiny_spraychart"
+    - Player Season Similarity App: "https://billpetti.shinyapps.io/player_similarity_app/"
     - Umpire IDs for games since 2008: "https://app.box.com/s/x20ahfe5e3a3y9sknz3g5y2ojbef3fzx"
     - Game Day Supplemental Data File: "https://app.box.com/v/gamedayboxscoredata"
     - MiLB Game Supplemental Data File: "https://app.box.com/s/ljurodaqnof7kbnyhayyizo7wey0kw5h"
