@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: shiny_layout
 title: Test
 subtitle:
 ---
