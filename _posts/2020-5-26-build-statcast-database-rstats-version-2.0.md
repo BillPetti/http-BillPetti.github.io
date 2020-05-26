@@ -247,7 +247,14 @@ map(.x = seq(2009, 2019, 1),
     
     message(paste0('Deleting and uploading ', .x, ' data to database...'))
     
-    delete_and_upload(df, .x)
+    delete_and_upload(df, 
+                      year = .x, 
+                      db_driver = 'PostgreSQL', 
+                      dbname = 'your_db_name', 
+                      user = 'your_user_name', 
+                      password = 'your_password', 
+                      host = 'local_host', 
+                      port = 5432)
     
     statcast_db <- myDBconnections::connect_Statcast_postgreSQL()
     
