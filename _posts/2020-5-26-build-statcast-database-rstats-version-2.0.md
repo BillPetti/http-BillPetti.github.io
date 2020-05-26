@@ -4,7 +4,7 @@ title: How to Build a Statcast Database from BaseballSavant, v2.0
 tags: [R, statacast, baseballr]
 ---
 
-Two years ago I wrote a post about how to create a database of PitchFX/Statcast data using the [`baseballr` package for R](http://billpetti.github.io/baseballr/). I, and others, have made improvements to the `scrape_statcast_savant` function to make is easier to automate the build.
+Two years ago I [wrote a post about](https://t.co/gwjUkXzmX7?amp=1) how to create a database of PitchFX/Statcast data using the [`baseballr` package for R](http://billpetti.github.io/baseballr/). I, and others, have made improvements to the `scrape_statcast_savant` function to make is easier to automate the build.
 
 As before, the trick is to go year by year and, at most, week by week. [BaseballSavant](https://baseballsavant.mlb.com) limits the size of any query to about 40,000 rows, or one week of games.
 
