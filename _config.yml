@@ -32,14 +32,21 @@ navbar-links:
     - MLB Game Feed Viewer: "https://billpetti.shinyapps.io/live_pbp_viewer/"
     - Hitter Volatility (VOL and corrVOL) Leaderboards: "https://rawgit.com/BillPetti/Offensive-Consistency-MLB/master/corrVOL/individual_seasons_VOL_1974_2016.html"
     - Cumulative Home Runs by Plate Appearances App: "http://billpetti.shinyapps.io/shiny_spraychart"
+    - Player Season Similarity App: "https://billpetti.shinyapps.io/player_similarity_app/"
     - Umpire IDs for games since 2008: "https://app.box.com/s/x20ahfe5e3a3y9sknz3g5y2ojbef3fzx"
     - Game Day Supplemental Data File: "https://app.box.com/v/gamedayboxscoredata"
+    - MiLB Game Supplemental Data File: "https://app.box.com/s/ljurodaqnof7kbnyhayyizo7wey0kw5h"
+    - MLB Pitch-level Linear Weights, 2008-present: "https://app.box.com/s/exw42n3r1dyewsr149adt3it9oa7dmtz"
     - Statcast-PITCHf/x Working Glossary: "https://app.box.com/v/statcast-pitchfx-glossary-pett"
     - 40-man Roster Hitter Heatmaps: "https://www.dropbox.com/home/Public/hitter_heatmaps_40_man_rosters"
+  Other Tools:
+    - Sankey Diagram Creator: "https://billpetti.shinyapps.io/sankey_diagram_generator/"
+    - COVID-19 Data and Visualization Tool: "https://billpetti.shinyapps.io/covid_19_country_state_dashboard/"
+    - Can I Make the Game App: "https://billpetti.shinyapps.io/can_i_make_the_game/"
+    - Fantasy Football Player Tool: "https://billpetti.shinyapps.io/shiny_ffl_app/"
   R Crash Course: "Crash_course_in_R"
   Articles & Media Appearances: "http://billpetti.tumblr.com/tagged/media"
   Other Links:
-    - Fantasy Football Player Tool: "https://billpetti.shinyapps.io/shiny_ffl_app/"
     - Built with Beautiful Jekyll: "http://deanattali.com/beautiful-jekyll/"
   
 
