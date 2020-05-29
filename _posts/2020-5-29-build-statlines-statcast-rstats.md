@@ -189,7 +189,7 @@ custom_statlines_joined %>%
 
 ```
 
-![Example 7-day Rolling wOBA Chart](https://https://github.com/BillPetti/BillPetti.github.io/blob/master/_posts/7-day_rolling.png?raw=true)
+![Example 7-day Rolling wOBA Chart](https://github.com/BillPetti/BillPetti.github.io/blob/master/_posts/7-day_rolling.png?raw=true)
 
 
 
