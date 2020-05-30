@@ -25,7 +25,7 @@ description: Personal Homepage of Bill Petti
 navbar-links:
   About Me: "aboutme"
   Baseball Tools: 
-    - Baseball Tools Home: "baseball_tools_home"
+    - Baseball Tools Home: "https://billpetti.github.io/baseball_tools"
     - baseballr package for R: "https://billpetti.github.io/baseballr/"
     - Interactive Spray Chart Tool: "https://billpetti.shinyapps.io/shiny_spraychart"
     - Edge% Shiny App: "https://billpetti.shinyapps.io/edge_shiny/"
