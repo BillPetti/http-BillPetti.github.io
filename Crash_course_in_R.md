@@ -15,7 +15,7 @@ R is an object-oriented programming language focused on manipulating and analyzi
 
 R is also an open source language, meaning anyone can contribute to the R project, and develop and distribute code to run on the R platform
  
-R has become one of the most popular languages used by statisticians and data scientists. As a resut, there is a massive community that contributes to R
+R has become one of the most popular languages used by statisticians and data scientists. As a result, there is a massive community that contributes to R.
 
 In order to complete this crash course you will need R installed on your computer, as well as the RStudio IDE.
 
