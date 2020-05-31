@@ -28,7 +28,7 @@ navbar-links:
     - Baseball Tools Home: "https://billpetti.github.io/baseball_tools"
     - baseballr package for R: "https://billpetti.github.io/baseballr/"
     - Cumulative Home Runs by Plate Appearances App: "http://billpetti.shinyapps.io/shiny_spraychart"
-    - Edge% Shiny App: "https://billpetti.shinyapps.io/edge_shiny/"
+    - Edge% App: "https://billpetti.shinyapps.io/edge_shiny/"
     - Game Day Supplemental Data File: "https://app.box.com/v/gamedayboxscoredata"
     - Hitter Volatility (VOL and corrVOL) Leaderboards: "https://rawgit.com/BillPetti/Offensive-Consistency-MLB/master/corrVOL/individual_seasons_VOL_1974_2016.html"
     - Interactive Spray Chart Tool: "https://billpetti.shinyapps.io/shiny_spraychart"
