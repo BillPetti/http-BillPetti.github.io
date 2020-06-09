@@ -14,7 +14,7 @@ The good news is the fine folks at the [Chadwick Baseball Bureau](http://chadwic
 
 First, you'll need to download and install the command line tools from Chadwick onto your computer. You can find the latest release [here](https://sourceforge.net/projects/chadwick/).
 
-Second, you will need to install `baseballr`if you haven't already. You can install using the following code: 
+Second, you will need to install `baseballr` if you haven't already. You can install using the following code: 
 
 ```
 require(devtools)
