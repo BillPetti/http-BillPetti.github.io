@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Decision Sciences Learning Session</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Bill Petti" />
+    <meta name="date" content="2020-06-22" />
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <link href="libs/remark-css/default-fonts.css" rel="stylesheet" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Decision Sciences Learning Session
+## Interactive Apps with R Shiny
+### Bill Petti
+### Maritz Motivation
+### 2020-06-22
+
+---
+
+
+background-image: url(https://rstudio.com/assets/img/og/shiny-og-twitter.jpg)
+
+
+
+---
+# Agenda
+
+- Walk through Shiny basics
+
+
+- View more complex Shiny apps
+
+
+- Live changes to a Shiny app
+
+---
+# What is Shiny?
+
+--
+
+
+&lt;img src="gold_jerry_gold.gif" width="110%" height="110%" style="display: block; margin: auto;" /&gt;
+---
+# What is Shiny (more helpful edition)?
+
+--
+
+- Shiny is an R library that makes it very easy to build interactrive web applications without the need to directly code in JavaScript
+
+--
+
+- You can build an application completely using R, or layer in custom CSS, HTML, or JavaScript
+
+--
+
+- Apps can be run locally on your machine, deployed to shinyapps.io, or deployed to our own Shiny server for greater security 
+
+---
+# What is Shiny (more helpful edition)?
+
+--
+
+- Anything that you can code in R can be displayed and integrated into a Shiny app
+
+--
+
+- Tables, plots, downloading data, uploading data, transforming data
+
+--
+
+&lt;img src="everything.gif" style="display: block; margin: auto;" /&gt;
+
+---
+class: inverse, center, middle
+
+# Building your first Shiny app
+
+---
+
+# First Shiny App
+
+Within RStudio, click File -&gt; New File -&gt; Shiny Web App
+
+&lt;img src="new_shiny_app.png" width="1747" style="display: block; margin: auto;" /&gt;
+
+---
+# First Shiny App
+
+- The file will provide a skeleton or template for fleshing out your app
+- The file has two main parts
+  - `ui`: This is where you code the user interface elements (what users see, interact with)
+  - `server`: This is where you code the action and outputs of the app
+
+&lt;img src="skeleton_shiny_app.png" width="60%" height="60%" style="display: block; margin: auto;" /&gt;
+
+---
+# First Shiny App
+
+- This app allows users to adjust the bin size when plotting a histogram of the faithful waiting variable
+- To run the app, click Run App in the upper right-hand corner of the app file
+&lt;img src="first_shiny_app.png" width="2048" style="display: block; margin: auto;" /&gt;
+---
+# Uses of Shiny
+
+Shiny can be used for a number of broad needs:
+
+- Display data or a simple plot without interactivity
+- Display data with some interactivity (i.e. filtering, sorting)
+- Generate different plots based on some interactivity
+- Combine plots and tabular data
+- Lots of other stuff...
+
+Let's walk through examples of each of the examples above...
+
+---
+class: inverse, center, middle
+
+# Apps that display plots and data
+
+---
+#app_plot.R
+
+.pull-left[
+
+&lt;img src="plot_app.png" width="1427" style="display: block; margin: auto;" /&gt;
+]
+
+.pull-right[
+&lt;img src="app_plot_code.png" width="1293" style="display: block; margin: auto;" /&gt;
+
+]
+
+---
+#app_datatable.R
+
+.pull-left[
+
+&lt;img src="app_datatable.png" width="1387" style="display: block; margin: auto;" /&gt;
+]
+
+.pull-right[
+&lt;img src="app_datatable_code.png" width="1195" style="display: block; margin: auto;" /&gt;
+
+]
+
+---
+#app_combine_outputs.R
+
+.pull-left[
+
+&lt;img src="app_combine.png" width="2064" style="display: block; margin: auto;" /&gt;
+]
+
+.pull-right[
+&lt;img src="app_combine_code.png" width="1261" style="display: block; margin: auto;" /&gt;
+
+]
+
+---
+class: inverse, center, middle
+
+# Apps that allow for user action
+
+---
+#app_action.R
+
+.pull-left[
+
+&lt;img src="app_action.png" width="2024" style="display: block; margin: auto;" /&gt;
+]
+
+.pull-right[
+&lt;img src="app_action_code.png" width="1595" style="display: block; margin: auto;" /&gt;
+
+]
+
+---
+class: inverse, center, middle
+
+# Inputs
+
+---
+#Inputs
+
+- Most of the useful interactivity in Shiny is based on inputs.
+- Inputs are typically generated through the `ui` and send information to the `server` so that some kind of actoin can take place
+- The most common inputs are widgets that allow you to filter data (honestly, filtering data is about 90% of what you will use inputs for)
+
+---
+#Inputs
+
+- Here, we can filter the `faithful` data set by the length of the eruptions before binning and plotting
+
+
+.pull-left[
+
+- We filter the data based on the same action button, and then use that filtered data set for binning and plotting (notice once you make an objection reactive it needs to be followed by `()` for the server to recognize it)
+
+&lt;img src="app_action_input.png" width="2016" style="display: block; margin: auto;" /&gt;
+
+]
+
+.pull-right[
+&lt;img src="app_action_input_code.png" width="75%" height="75%" style="display: block; margin: auto;" /&gt;
+
+]
+
+---
+#Inputs
+
+There are lots of different inputs you can use:
+
+&lt;img src="types_of_inputs.png" width="75%" height="75%" style="display: block; margin: auto;" /&gt;
+
+---
+#Conditional Inputs
+
+- Sometimes you might want the available values for inputs to be conditional on selections from earlier filters
+- Consider an [app that displays data about MLB games](https://billpetti.shinyapps.io/live_pbp_viewer/)
+  - The users first selects a date from a calendar input
+  - Then user can select from a list of games available on that day
+- Conditional Inputs can be useful in a few ways
+  - Too many potential options for a drop down
+  - Save users from themselves (prevent them from selecting options that may not make sense)
+
+---
+# Conditional Inputs
+
+First, we create the calendar input in the `ui` section and create a `uiOutput` that will reference an object from the `server` names `matchup`
+
+
+```r
+ui &lt;- fluidPage(
+
+  # Application title
+  titlePanel("Conditional Filters"),
+
+  dateInput("date",
+            "Choose or enter a date (YYYY-MM-DD)",
+            value = '2019-04-01'),
+  uiOutput('matchups')
+
+)
+```
+
+---
+# Conditional Inputs
+
+Then, we render the ui `matchups` server-side, which can then be referenced in the `ui` by `uiOutput`
+
+
+```r
+server &lt;- function(input, output) {
+
+  output$matchups &lt;- renderUI({
+
+    games &lt;- get_game_pks_mlb(input$date) %&gt;%
+      mutate(matchup =
+               paste0(teams.away.team.name, " at ",
+                      teams.home.team.name))
+
+    matchups &lt;- games %&gt;%
+      pull(matchup)
+
+    selectizeInput("matchups_for_date",
+                   "Select a game",
+                   matchups,
+                   width = 350)
+  })
+}
+```
+
+---
+# Conditional Inputs
+
+.pull-left[
+&lt;img src="app_conditional_input_1.png" width="900px" style="display: block; margin: auto;" /&gt;
+]
+.pull-right[
+&lt;img src="app_conditional_inputs_2.png" width="250px" style="display: block; margin: auto;" /&gt;
+]
+
+---
+class: inverse, center, middle
+
+# Downloading data and plots from Apps
+
+---
+#Downloading Data and Plots
+
+- You can allow users to download data or plots by using the `downloadButton()` function
+
+.pull-left[
+&lt;img src="app_download.png" width="1504" style="display: block; margin: auto;" /&gt;
+]
+
+.pull-right[
+&lt;img src="app_download_code.png" width="75%" height="75%" style="display: block; margin: auto;" /&gt;
+
+]
+
+---
+#Downloading Data and Plots
+
+- It's a little different for `csv` files
+
+.pull-left[
+&lt;img src="app_download_data.png" width="1541" style="display: block; margin: auto;" /&gt;
+]
+
+.pull-right[
+&lt;img src="app_download_data_code.png" width="75%" height="75%" style="display: block; margin: auto;" /&gt;
+
+]
+---
+
+class: inverse, center, middle
+
+# Tabbed UI Design
+
+---
+# Tabbed UI
+
+- You can add more functionality into your apps by adding tabs
+--
+
+- Each tab can be tied to universal filters/inputs or you can separate filters/inputs that apply to that tab only
+--
+
+- To create a tabbed app you use the following in the `ui` section:
+
+```
+ ui &lt;- fluidPage(
+ 
+  titlePanel("Old Faithful Geyser Data"),
+
+  tabsetPanel(
+    tabPanel('plot',
+        plotOutput("faithful_plot")),
+    tabPanel('table',
+        DTOutput('faithful_data'))
+
+  )
+)
+```
+---
+# Tabbed UI 
+
+.pull-left[
+&lt;img src="app_tab_1.png" width="900px" style="display: block; margin: auto;" /&gt;
+]
+
+
+.pull-right[
+&lt;img src="app_tab_2.png" width="900px" style="display: block; margin: auto;" /&gt;
+]
+
+---
+class: inverse, center, middle
+# More Complex Shiny Apps
+
+---
+**COVID-19 Auto Trends**: https://maritzmotivation.shinyapps.io/auto_covid_19_trends/
+- Tabbed, `navbarPage`, html and automated narratives based on selection
+
+&lt;img src="auto_covid_app.png" width="4477" style="display: block; margin: auto;" /&gt;
+
+---
+**MM Culture Health App**: https://maritzmotivation.shinyapps.io/mm_culture_health_app/
+- Tabbed, downloading plots, global and local filters/inputs, conditional filters, custom html
+
+&lt;img src="culture_health_app.png" width="900px" style="display: block; margin: auto;" /&gt;
+
+---
+**Can I Make the Game?**: https://billpetti.shinyapps.io/can_i_make_the_game/
+- Data upload, Google API, downloading data
+
+&lt;img src="can_i_make_app.png" width="900px" style="display: block; margin: auto;" /&gt;
+---
+
+class: inverse, center, middle
+
+# Let's build an app together!
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

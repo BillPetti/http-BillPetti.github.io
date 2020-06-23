@@ -1,0 +1,66 @@
+# observe an event, then take action
+# using action buttons
+
+library(shiny)
+library(tidyverse)
+
+# Define UI for application that draws a histogram
+ui <- fluidPage(
+
+  # Application title
+  titlePanel("Old Faithful Geyser Data"),
+
+  # Sidebar with a slider input for number of bins
+  sidebarLayout(
+    sidebarPanel(
+      sliderInput("bins",
+                  "Number of bins:",
+                  min = 1,
+                  max = 50,
+                  value = 30),
+      sliderInput("eruption_time",
+                  "Length of Eruption:",
+                  min = 0,
+                  max = max(faithful$eruptions),
+                  step = 1,
+                  value = 0),
+      actionButton("button", "Plot Data")
+    ),
+
+    # Show a plot of the generated distribution
+    mainPanel(
+      plotOutput("distPlot")
+    )
+  )
+)
+
+# Define server logic required to draw a histogram
+server <- function(input, output) {
+
+  faithful_filtered <- eventReactive(input$button, {
+
+    df <- faithful %>%
+      filter(eruptions >= input$eruption_time)
+
+    return(df)
+
+  })
+
+  bin_size <- eventReactive(input$button, {
+
+    # generate bins based on input$bins from ui.R
+    x    <- faithful_filtered()[, 2]
+    bins <- seq(min(x), max(x), length.out = input$bins + 1)
+    return(bins)
+  })
+
+  output$distPlot <- renderPlot({
+    # draw the histogram with the specified number of bins
+    x <- faithful_filtered()[, 2]
+    hist(x, breaks = bin_size(), col = 'darkgray', border = 'white')
+  })
+
+}
+
+# Run the application
+shinyApp(ui = ui, server = server)
