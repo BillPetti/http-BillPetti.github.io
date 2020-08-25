@@ -9,3 +9,5 @@ Currently, I am a Director and Lead Data Scientist in the Decision Sciences grou
 I also moonlight as a baseball researcher and have consulted for several Major League teams. (For consulting inquiries, I can be reached via [email](billpetti@gmail.com).) My public baseball research can mostly be found at [The Hardball Times](http://www.hardballtimes.com/author/billpetti/). 
 
 I have also developed a number of public tools for baseball analysis, such as the [baseballr package for R](https://BillPetti.github.io/baseballr), the [Interactive Spray Chart Tool](https://billpetti.shinyapps.io/shiny_spraychart), and the [Edge% app](https://billpetti.shinyapps.io/edge_shiny/). For more information on these tools, visit the [Baseball Tools page](https://billpetti.github.io/baseball_tools/).
+
+<a href="https://github.com/BillPetti/BillPetti.github.io/blob/master/bill_petti_resume_08_2020.pdf" type="application/pdf">Resume PDF</a>
