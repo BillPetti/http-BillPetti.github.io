@@ -23,10 +23,10 @@ description: Personal Homepage of Bill Petti
 
 # List of links in the navigation bar
 navbar-links:
-  About Me: 
-    - Short Bio: "aboutme"
+  About Me:
+    - "aboutme"
     - Resume: "https://github.com/BillPetti/BillPetti.github.io/raw/master/img/bill_petti_resume_08_2020.pdf"
-  Baseball Tools: 
+  Baseball Tools:
     - Baseball Tools Home: "https://billpetti.github.io/baseball_tools"
     - baseballr package for R: "https://billpetti.github.io/baseballr/"
     - Cumulative Home Runs by Plate Appearances App: "http://billpetti.shinyapps.io/shiny_spraychart"
