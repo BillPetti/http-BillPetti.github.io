@@ -10,6 +10,6 @@ I also moonlight as a baseball researcher and have consulted for several Major L
 
 I have also developed a number of public tools for baseball analysis, such as the [baseballr package for R](https://BillPetti.github.io/baseballr), the [Interactive Spray Chart Tool](https://billpetti.shinyapps.io/shiny_spraychart), and the [Edge% app](https://billpetti.shinyapps.io/edge_shiny/). For more information on these tools, visit the [Baseball Tools page](https://billpetti.github.io/baseball_tools/).
 
-<a href="https://github.com/BillPetti/BillPetti.github.io/raw/master/img/bill_petti_resume_09_2020_v1.pdf" type="application/pdf">Short Resume (PDF)</a>
+<a href="https://github.com/BillPetti/BillPetti.github.io/raw/master/img/bill_petti_resume_09_2020_v1.pdf" type="application/pdf">1-Page Resume (PDF)</a>
 <br>
 <a href="https://github.com/BillPetti/BillPetti.github.io/raw/master/img/bill_petti_resume_08_2020.pdf" type="application/pdf">Long Resume (PDF)</a>
