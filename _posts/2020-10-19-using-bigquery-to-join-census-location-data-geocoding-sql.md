@@ -4,8 +4,6 @@ title: Leveraging US Census Data in BigQuery
 tags: [census, BigQuery, SQL, geocoding, ACS]
 ---
 
-## Introduction
-
 I've been using Google's cloud services more and more, specifically [BigQuery](https://cloud.google.com/bigquery). Besides the speed of queries and the simple API integration for different languages, like R, BigQuery makes available a large number of public data sets that come in quite handy. Here's a quick guide to leveraging some of the Census data sets with your own data.
 
 Let's say you have a data set that includes locations with longitude and latitude coordinates like so:
