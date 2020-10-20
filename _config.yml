@@ -25,7 +25,7 @@ description: Personal Homepage of Bill Petti
 navbar-links:
   About Me:
     - Short Bio: "aboutme"
-    - Short Resume: "https://github.com/BillPetti/BillPetti.github.io/raw/master/img/bill_petti_resume_09_2020_v1.pdf"
+    - Short Resume: "https://github.com/BillPetti/BillPetti.github.io/raw/master/img/bill_petti_resume_2020_09_30.pdf"
     - Long Resume: "https://github.com/BillPetti/BillPetti.github.io/raw/master/img/bill_petti_resume_08_2020.pdf"
   Baseball Tools:
     - Baseball Tools Home: "https://billpetti.github.io/baseball_tools"
