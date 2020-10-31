@@ -47,6 +47,7 @@ navbar-links:
   Articles & Media Appearances: "http://billpetti.tumblr.com/tagged/media"
   Other Tools:
     - h2oclasseval R package: "https://github.com/BillPetti/h2oclasseval"
+    - County-level Changes in US Presidential Vote Share app: "https://billpetti.github.io/net_vote_change_12_16/"
     - Sankey Diagram Creator: "https://billpetti.shinyapps.io/sankey_diagram_generator/"
     - COVID-19 Data and Visualization Tool: "https://billpetti.shinyapps.io/covid_19_country_state_dashboard/"
     - Can I Make the Game App: "https://billpetti.shinyapps.io/can_i_make_the_game/"
