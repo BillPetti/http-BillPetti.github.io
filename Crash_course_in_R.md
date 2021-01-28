@@ -11,7 +11,7 @@ You can also download a pdf version of this course [here](https://raw.githubuser
 
 # What is R?
 
-R is an object-oriented programming language focused on manipulating and analyzing data. Everything in R is an object: e.g. datasets, functions, models, plots, etc.  
+R is a programming language focused on manipulating and analyzing data.  
 
 R is also an open source language, meaning anyone can contribute to the R project, and develop and distribute code to run on the R platform
  
