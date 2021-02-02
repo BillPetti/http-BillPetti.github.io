@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Video: Accessing the MLB Stats API with baseballr
+title: Accessing the MLB Stats API with baseballr (Video)
 tags: [baseballr, rstats, r, mlb]
 ---
 
