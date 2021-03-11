@@ -211,11 +211,11 @@ statcast_db <- myDBconnections::connect_Statcast_postgreSQL()
 
 # to connect to your own database you would use something like
 # statcast_db <- DBI::dbConnect(RPostgreSQL::PostgreSQL(), 
-#                                                     dbname = <database name>, 
-#                                    				user = <user name>, 
-#													password = <your password>, 
-#													host = "localhost", 
-#       										     port = 5432)
+# dbname = <database name>, 
+# user = <user name>, 
+#	password = <your password>, 
+#	host = "localhost", 
+# port = 5432)
 
 dbWriteTable(statcast_db, "statcast", df, overwrite = TRUE)
 
