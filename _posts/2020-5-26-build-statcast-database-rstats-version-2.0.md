@@ -17,7 +17,7 @@ library(baseballr)
 library(tidyverse)
 library(DBI)
 library(RPostgreSQL)
-library(myDBconnections)
+library(myDBconnections) # see note below
 ```
 ***Note: `myDBconnections` is a personal package that makes it simpler for me to connecting to my existing databases, local and remoate***
 
@@ -209,12 +209,23 @@ df <- format_append_statcast(df = payload_statcast)
 
 statcast_db <- myDBconnections::connect_Statcast_postgreSQL()
 
+# to connect to your own database you would use something like
+# statcast_db <- DBI::dbConnect(RPostgreSQL::PostgreSQL(), 
+#                                                     dbname = <database name>, 
+#                                    				user = <user name>, 
+#													password = <your password>, 
+#													host = "localhost", 
+#       										     port = 5432)
+
 dbWriteTable(statcast_db, "statcast", df, overwrite = TRUE)
 
 # disconnect from database
 
 myDBconnections::disconnect_Statcast_postgreSQL(statcast_db)
  
+# or you can simply run 
+# DBI::dbDisconnect(statcast_db)
+
 rm(df)
 gc()
 ``` 
