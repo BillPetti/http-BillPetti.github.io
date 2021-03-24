@@ -184,8 +184,8 @@ Then, loop over the games, grab the pbp data, and filter for Guerrero as the bat
 
 ```
 vlad_gk <- map_df(.x = vlad_dates,
-                  ~get_game_pks_mlb_beta(date = .x, 
-                                         league_ids = c(11,12))
+                  ~get_game_pks_mlb_(date = .x, 
+                                     league_ids = c(11,12))
 )
 
 vlad_gk_TOR <- vlad_gk %>%
