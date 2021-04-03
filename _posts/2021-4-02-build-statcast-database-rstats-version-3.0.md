@@ -25,7 +25,7 @@ annual_statcast_query <- function(season) {
   
   safe_savant <- purrr::safely(scrape_statcast_savant)
   
-  payload <- purrr:map(.x = seq_along(date_grid$start_date), 
+  payload <- purrr::map(.x = seq_along(date_grid$start_date), 
                        ~{message(paste0('\nScraping week of ', date_grid$start_date[.x], '...\n'))
                          
                          payload <- safe_savant(start_date = date_grid$start_date[.x], 
